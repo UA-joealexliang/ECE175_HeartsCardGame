@@ -1,0 +1,18 @@
+suit:	
+3 HEARTS
+4 DIAMONDS
+5 CLOVER
+6 SPADES
+
+num: range from 2-14
+2-10 NORMAL
+11 JACK
+12 QUEEN
+13 KING
+14 ACE
+
+face:
+J
+Q
+K
+A

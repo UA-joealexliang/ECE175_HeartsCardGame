@@ -1,0 +1,41 @@
+void my_fgets(char* str, int max_chars, FILE* fptr)
+//formats name of player
+
+int CountCards(card* HeadNode)
+//counts number of cards in a deck
+
+void CreateDeck(card* HeadNode, card* TailNode) 
+//creates the deck of cards
+
+void PrintDeck(card* pt, int num)
+//pt is HeadNode, num tells us how many player rows
+//formatting string and output to print cards
+
+void SortCards(card* HeadNode, int numCards)
+//sorts player deck by suit and then by number
+//used for easy to read output
+//very inefficient n^2 sorting :C
+
+card* SearchCard(card* Deck, int Card, card* BotTail, int init)
+//used for swapping 3 cards at the beginning
+//Deck denotes the player's deck who is choosing 3 cards to pass on to the next player
+//Card denotes the nth card in the deck chosen to be passed on
+//BotTail denotes the next player's deck who has to accept the 3 cards from the previous player
+
+void FindBiggestAndSmallestCard(card* Bot, int* Heart, int* Diamond, int* Club, int* Spade, int* sHeart, int* sDiamond, int* sClub, int* sSpade, int* ValueH, int* ValueD, int* ValueC, int* ValueS, int* sValueH, int* sValueD, int* sValueC, int* sValueS)
+
+int SearchCardValue(card* Bot, int suit, int num)
+//find position of a card given HeadNode of deck, suit, and num 
+
+int CheckValidNum(card* HeadNode, card* TailNode, int Card1, int Card2, int Card3, int numPlayer, card* Bot1, card* Bot2, card* Bot3, card* Bot1Tail, card* Bot2Tail, card* Bot3Tail)
+//Used to check that 3 chosen cards positions are valid, and is main swapping function
+//Checks entered value to make sure it is within the range
+
+char CheckSuit(card* Deck, int Card, card* Table)
+//Finds the suit of a card given a HeadNode of a deck, the card, and a Table
+
+card* SearchCard2(card* Deck, int Card, card* Table)
+//Find a specific card, used for when playing a card
+
+int FindStarter(card* Check, card* Tail, card* Table)
+//Find a 2 of Clubs to determine who starts the game

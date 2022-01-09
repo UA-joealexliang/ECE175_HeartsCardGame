@@ -1,0 +1,58 @@
+/*
+* denotes good to go
+X denotes bad writing, incomplete description
+? denotes may need to rewrite/split function
+
+##GameFunctions##
+* int IsHeartBroken(card* Table);
+* void my_fgets(char* str, int max_chars, FILE* fptr);
+* int FindStarter(card* playerHeadNode, card* playerTailNode, card* Table);
+* int RoundWinner(char suit, card* Table, int leader, int* playerscore, int* bot1score, int* bot2score, int* bot3score);
+* card* PlayCard(card* playerHeadNode, int cardPosition, card* Table);
+X void BeginGame(card* TableHead, char Name[], card* Player, card* PlayerTail, card* Bot1, card* Bot2, card* Bot3, int num, char name[])
+X void CreatePlayers(card* HeadNode)
+X void CreateDeck(card* HeadNode, card* TailNode)
+
+##DeckFunctions##
+* char FindSuitFromPosition(card* HeadNode, int cardPosition);
+* int CountCards(card* HeadNode);
+* void SortCards(card* HeadNode, int numCards);
+* void ShuffleDeck(card* HeadNode, card* TailNode);
+? card* ReturnNextPlayerTailNodeFromSwap(card* Player1HeadNode, int cardPosition, card* Player2TailNode, int init);
+* int FindPositionFromCard(card* HeadNode, int suit, int num);
+X void FindBiggestAndSmallestCard(card* Bot, int* Heart, int* Diamond, int* Club, int* Spade, int* sHeart, int* sDiamond, int* sClub, int* sSpade, int* ValueH, int* ValueD, int* ValueC, int* ValueS, int* sValueH, int* sValueD, int* sValueC, int* sValueS);
+X int FindCard(card* Bot, card* Table, int Player, int HeartBroken, int starter, int tempwinner, int end, int suit, int tempwinnernum)
+? int CheckValidNum(card* HeadNode, card* TailNode, int Card1, int Card2, int Card3, int numPlayer, card* Bot1, card* Bot2, card* Bot3, card* Bot1Tail, card* Bot2Tail, card* Bot3Tail)
+
+##PrintFunctions##
+* void PrintDeck(card* pt, int num);
+* void printStats(char Name[], card* Player, card* Bot1, card* Bot2, card* Bot3);
+
+DeckFunctions does not include any other files
+GameFunctions and PrintFunctions include DeckFunctions
+
+GOOD:
+int IsHeartBroken(card* Table); ##GameFunctions##
+char FindSuitFromPosition(card* HeadNode, int cardPosition); ##DeckFunctions##
+int CountCards(card* HeadNode); ##DeckFunctions##
+void SortCards(card* HeadNode, int numCards); ##DeckFunctions##
+void my_fgets(char* str, int max_chars, FILE* fptr); ##GameFunctions##
+int FindStarter(card* playerHeadNode, card* playerTailNode, card* Table); ##GameFunctions##
+int RoundWinner(char suit, card* Table, int leader, int* playerscore, int* bot1score, int* bot2score, int* bot3score); ##GameFunctions##
+void ShuffleDeck(card* HeadNode, card* TailNode); ##DeckFunctions##
+
+OK:
+card* ReturnNextPlayerTailNodeFromSwap(card* Player1HeadNode, int cardPosition, card* Player2TailNode, int init); //Dependent on CountCards ##DeckFunctions##
+int FindPositionFromCard(card* HeadNode, int suit, int num); //Dependent on CountCards ##DeckFunctions##
+void PrintDeck(card* pt, int num); //Dependent on CountCards ##PrintFunctions##
+void printStats(char Name[], card* Player, card* Bot1, card* Bot2, card* Bot3); //Dependent on SortCards, PrintDeck, CountCards ##PrintFunctions##
+void FindBiggestAndSmallestCard(card* Bot, int* Heart, int* Diamond, int* Club, int* Spade, int* sHeart, int* sDiamond, int* sClub, int* sSpade, int* ValueH, int* ValueD, int* ValueC, int* ValueS, int* sValueH, int* sValueD, int* sValueC, int* sValueS); //Dependent on CountCards ##DeckFunctions##
+card* PlayCard(card* playerHeadNode, int cardPosition, card* Table); //Dependent on CountCards ##GameFunctions##
+
+BAD:
+int FindCard(card* Bot, card* Table, int Player, int HeartBroken, int starter, int tempwinner, int end, int suit, int tempwinnernum) //Dependent on CountCards, FindBiggestAndSmallestCard, FindPositionFromCard ##DeckFunctions##
+void BeginGame(card* TableHead, char Name[], card* Player, card* PlayerTail, card* Bot1, card* Bot2, card* Bot3, int num, char name[]) //Dependent on FindCard, etc. ##GameFunctions##
+int CheckValidNum(card* HeadNode, card* TailNode, int Card1, int Card2, int Card3, int numPlayer, card* Bot1, card* Bot2, card* Bot3, card* Bot1Tail, card* Bot2Tail, card* Bot3Tail) //Dependent on FindBiggestAndSmallestCard, FindPositionFromCard, ReturnNextPlayerTailNodeFromSwap ##Deck Functions##
+void CreatePlayers(card* HeadNode) //Dependent on BeginGame ##GameFunctions##
+void CreateDeck(card* HeadNode, card* TailNode) //Dependent on CreatePlayers ##GameFunctions##
+*/
